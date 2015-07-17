@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pasabordos" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6606dc40-b18a-48fa-ab39-737aaff75f45">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="vuelo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT *
+FROM pasaje p, vuelo v, avion a, silla s, itinerario i, cliente c, detallecompra dc, ciudad ciu, pais pa, aeropuerto ae
+
+WHERE 
+	c.tipo_documento = p.tipo_documento  AND c.nro_documento = p.nro_documento AND 
+	p.vuelo =  $P{vuelo} AND $P{vuelo} = v.cod_vuelo
+	 AND v.cod_avion = a.matricula_avion AND
+	v.cod_itinerario = i.cod_itinerario AND i.ciudad_origen = ciu.codigo_ciudad AND
+	i.ciudad_destino = ciu.codigo_ciudad]]>
+	</queryString>
+	<field name="cod_pasaje" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_pago" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vuelo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="detalle_compra" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nro_documento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_documento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_vuelo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_itinerario" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_hora" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_avion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="matricula_avion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="capacidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="marca" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_silla" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fila" class="java.lang.Integer">
+		<fieldDescription><![CDATA[NÃºmero fila donde estÃ¡ ubicada la silla, expresada por un entero.]]></fieldDescription>
+	</field>
+	<field name="columna" class="java.lang.String">
+		<fieldDescription><![CDATA[NÃºmero columna donde estÃ¡ ubicada la silla, expresada por una letra del abecedario.]]></fieldDescription>
+	</field>
+	<field name="clase" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ciudad_origen" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ciudad_destino" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nro_telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nro_celular" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="correo_electronico" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_tipo_cliente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_detalle_compra" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_pago" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor_pasaje" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigo_ciudad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigo_Pais" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="3095aecb-290a-48c8-83e2-42c6f35a2857"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Pasabordos]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="418" y="37" width="100" height="20" uuid="7f641db2-b877-4fe3-974d-88c18f3ef528"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="270" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="01399c15-b168-4e3b-9e1a-16f1caef8ddf"/>
+				<textFieldExpression><![CDATA[$F{cod_pasaje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="39" width="100" height="20" uuid="a30d1e91-a853-4268-9414-090b700a17d1"/>
+				<textFieldExpression><![CDATA[$F{vuelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="71" width="100" height="20" uuid="b6ac0c08-d7f1-4b1e-99c7-ed0edee50563"/>
+				<textFieldExpression><![CDATA[$F{nro_documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="71" width="100" height="20" uuid="80a85c29-fe80-4d24-9112-e19270d25eb2"/>
+				<textFieldExpression><![CDATA[$F{tipo_documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="104" width="100" height="20" uuid="e92b520a-ba91-4d5f-a5a6-2be8d6205c70"/>
+				<textFieldExpression><![CDATA[$F{matricula_avion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="141" width="100" height="20" uuid="a67ff852-0bc4-44e5-ba54-c4b51a04b287"/>
+				<textFieldExpression><![CDATA[$F{cod_silla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="141" width="100" height="20" uuid="9bcd66fd-4558-4890-b004-911bdb8bfea1"/>
+				<textFieldExpression><![CDATA[$F{fila}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="308" y="141" width="100" height="20" uuid="f75eb538-ab5a-48d2-9d18-13282bc72a9e"/>
+				<textFieldExpression><![CDATA[$F{columna}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="262" y="71" width="100" height="20" uuid="22741e12-f885-404d-b437-c9bcffc12709"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="362" y="71" width="100" height="20" uuid="a60f3ee2-1abe-4283-9cb7-09a0a3525dfd"/>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="183" width="100" height="20" uuid="f58eb550-28a2-40bb-8256-08ce6fbe8ecc"/>
+				<textFieldExpression><![CDATA[$F{valor_pasaje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="221" width="100" height="20" uuid="81d52f49-213b-4660-931d-89141bc1f8ea"/>
+				<textFieldExpression><![CDATA[$F{codigo_ciudad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="221" width="100" height="20" uuid="d48c4c42-0901-46d5-b30c-d0f7c3281076"/>
+				<textFieldExpression><![CDATA[$F{codigo_Pais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="39" width="100" height="20" uuid="e6250270-96ba-496f-9fda-a436747bc3b6"/>
+				<textFieldExpression><![CDATA[$F{fecha_hora}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="424" y="158" width="131" height="112" uuid="8df44d22-53a4-485b-b650-330924b723c4"/>
+				<jr:DataMatrix xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="bottom">
+					<jr:codeExpression><![CDATA[]]></jr:codeExpression>
+				</jr:DataMatrix>
+			</componentElement>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="165" y="22" width="80" height="20" uuid="6baa1fd4-64d8-43dd-b94b-9a5e3d6e711f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="245" y="22" width="40" height="20" uuid="e17a5f35-db52-456e-b435-51c838f5bc37"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
